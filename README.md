@@ -60,21 +60,51 @@ This project simulates a financial tracking system where users can view transact
 ---
 
 ## 📂 Project Structure
-```
-src/
-├── components/
-│   ├── cards/
-│   ├── charts/
-│   ├── transactions/
-│   ├── insights/
-│   └── common/
-├── context/
-├── data/
-├── hooks/
-├── utils/
-├── pages/
-├── App.jsx
-└── main.jsx
+```bash
+finance-dashboard/
+│
+├── src/
+│   ├── assets/              
+│
+│   ├── components/
+│   │   ├── cards/
+│   │   │   └── SummaryCard.jsx
+│   │   │
+│   │   ├── charts/
+│   │   │   ├── LineChart.jsx
+│   │   │   └── PieChart.jsx
+│   │   │
+│   │   ├── transactions/
+│   │   │   ├── TransactionTable.jsx
+│   │   │   ├── TransactionRow.jsx
+│   │   │   └── TransactionFilters.jsx
+│   │   │
+│   │   ├── insights/
+│   │   │   └── Insights.jsx
+│   │   │
+│   │   └── common/
+│   │       ├── Navbar.jsx
+│   │       ├── RoleSwitcher.jsx
+│   │       └── Loader.jsx
+│
+│   ├── context/
+│   │   └── AppContext.jsx
+│
+│   ├── data/
+│   │   └── mockData.js
+│
+│   ├── utils/
+│   │   ├── calculations.js
+│   │   └── helpers.js
+│
+│   ├── pages/
+│   │   └── Dashboard.jsx
+│
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── package.json
+└── README.md
 ```
 ---
 
@@ -110,19 +140,24 @@ http://localhost:5173
 
 ---
 
+## 🎥 Demo Video
+📺 Google Drive Link: https://drive.google.com/file/d/1CkxXNO0LgyLf0e9fExNZ6fILOpLsfca8/view?usp=sharing
+
+--- 
+
 ## 📸 Screenshots
 --- 
 ## Home Page
-![image alt](https://github.com/Vivek-DK/AI-Article-Scraper-Rewriter/blob/29e22774bec05444f2c5c2e4d8b2e1c2cd29bffe/frontend/images/home_page.png)
+![image alt](https://github.com/Vivek-DK/Finance-Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/home.png)
 
 ---
 
 ## Transactions
-![image alt](https://github.com/Vivek-DK/AI-Article-Scraper-Rewriter/blob/29e22774bec05444f2c5c2e4d8b2e1c2cd29bffe/frontend/images/article_page.png)
+![image alt](https://github.com/Vivek-DK/Finance-Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/transactions.png)
 ---
 
 ## search_results_&_Insights
-![image alt](https://github.com/Vivek-DK/AI-Article-Scraper-Rewriter/blob/29e22774bec05444f2c5c2e4d8b2e1c2cd29bffe/frontend/images/article_page.png)
+![image alt](https://github.com/Vivek-DK/Finance-Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/search_results_%26_insights%20.png)
 ---
 
 
