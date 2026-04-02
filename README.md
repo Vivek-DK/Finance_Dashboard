@@ -148,16 +148,16 @@ http://localhost:5173
 ## 📸 Screenshots
 --- 
 ## Home Page
-![image alt](https://github.com/Vivek-DK/Finance-Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/home.png)
+![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/home.png)
 
 ---
 
 ## Transactions
-![image alt](https://github.com/Vivek-DK/Finance-Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/transactions.png)
+![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/transactions.png)
 ---
 
 ## search_results_&_Insights
-![image alt](https://github.com/Vivek-DK/Finance-Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/search_results_%26_insights%20.png)
+![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/search_results_%26_insights%20.png)
 ---
 
 
