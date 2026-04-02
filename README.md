@@ -60,7 +60,7 @@ This project simulates a financial tracking system where users can view transact
 ---
 
 ## 📂 Project Structure
-
+```
 src/
 ├── components/
 │   ├── cards/
@@ -75,7 +75,7 @@ src/
 ├── pages/
 ├── App.jsx
 └── main.jsx
-
+```
 ---
 
 ## ⚙️ Installation & Setup

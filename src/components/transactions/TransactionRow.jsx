@@ -1,20 +1,27 @@
 // src/components/transactions/TransactionRow.jsx
 
-import { formatCurrency, formatDate  } from "../../utils/helpers";
+import { formatCurrency, formatDate } from "../../utils/helpers";
 
 const TransactionRow = ({ transaction }) => {
   const { date, category, type, amount } = transaction;
 
   return (
-    <tr className="border-b last:border-none hover:bg-gray-50">
+    <tr className="border-b last:border-none hover:bg-gray-50 transition">
       
-      <td className="py-2">{formatDate(date)}</td>
+      {/* Date */}
+      <td className="py-3 px-2 text-gray-500 text-sm">
+        {formatDate(date)}
+      </td>
 
-      <td>{category}</td>
+      {/* Category */}
+      <td className="px-2 font-medium text-gray-800">
+        {category}
+      </td>
 
-      <td>
+      {/* Type */}
+      <td className="px-2">
         <span
-          className={`px-2 py-1 rounded text-xs ${
+          className={`px-2.5 py-1 rounded-full text-xs font-medium ${
             type === "income"
               ? "bg-green-100 text-green-600"
               : "bg-red-100 text-red-600"
@@ -24,7 +31,8 @@ const TransactionRow = ({ transaction }) => {
         </span>
       </td>
 
-      <td className="text-right font-medium">
+      {/* Amount */}
+      <td className="text-right px-2 font-semibold text-gray-900">
         {formatCurrency(amount)}
       </td>
 
