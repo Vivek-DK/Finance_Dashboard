@@ -185,16 +185,16 @@ https://drive.google.com/file/d/1CkxXNO0LgyLf0e9fExNZ6fILOpLsfca8/view?usp=shari
 ## 📸 Screenshots
 --- 
 ## Home Page
-![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/home.png)
+![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/7ba644cfb054bb7c9813c00f75171d87356f4674/src/assets/home.png)
 
 ---
 
 ## Transactions
-![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/Transactions.png)
+![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/7ba644cfb054bb7c9813c00f75171d87356f4674/src/assets/transactions.png)
 ---
 
-## search_results_&_Insights
-![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/Insights.png)
+## Insights
+![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/7ba644cfb054bb7c9813c00f75171d87356f4674/src/assets/Insights.png)
 ---
 
 ## 🧠 Approach
