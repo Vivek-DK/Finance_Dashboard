@@ -1,19 +1,8 @@
-// src/context/AppContext.jsx
-
 import { createContext, useContext, useEffect, useState } from "react";
 import { mockTransactions } from "../data/mockData";
 
-// create context
 const AppContext = createContext();
 
-/**
- * AppProvider
- * --------------------------------------
- * Handles global state for the application:
- * - transactions (main data)
- * - role (viewer/admin)
- * - filters (search + type)
- */
 export const AppProvider = ({ children }) => {
   // load from localStorage if available, else use mock data
   const storedData = localStorage.getItem("transactions");
@@ -27,19 +16,16 @@ export const AppProvider = ({ children }) => {
   const [filters, setFilters] = useState({
     search: "",
     type: "all", // all | income | expense
+    year: new Date().getFullYear(),
   });
 
-  /**
-   * Persist transactions to localStorage
-   * so data remains after refresh
-   */
+  { /* Persist transactions to localStorage
+       so data remains after refresh */ }
   useEffect(() => {
     localStorage.setItem("transactions", JSON.stringify(transactions));
   }, [transactions]);
 
-  /**
-   * Add new transaction (used for admin role)
-   */
+  { /* Add new transaction (used for admin role) */ }
   const addTransaction = (newTransaction) => {
     setTransactions((prev) => [
       ...prev,
@@ -50,17 +36,22 @@ export const AppProvider = ({ children }) => {
     ]);
   };
 
-  /**
-   * Filtered transactions based on search + type
-   */
+  { /* Filtered transactions based on search + type */ }
   const filteredTransactions = transactions.filter((t) => {
+    const date = new Date(t.date);
+
     const matchesSearch =
       t.category.toLowerCase().includes(filters.search.toLowerCase());
 
     const matchesType =
       filters.type === "all" ? true : t.type === filters.type;
 
-    return matchesSearch && matchesType;
+    const matchesYear =
+      filters.year === "all"
+        ? true
+        : date.getFullYear() === Number(filters.year);
+
+    return matchesSearch && matchesType && matchesYear;
   });
 
   return (
@@ -80,9 +71,8 @@ export const AppProvider = ({ children }) => {
   );
 };
 
-/**
- * Custom hook for easy usage
- */
+
+ { /* Custom hook for easy usage */}
 export const useAppContext = () => {
   return useContext(AppContext);
 };

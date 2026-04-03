@@ -1,5 +1,3 @@
-// src/components/insights/Insights.jsx
-
 import { useAppContext } from "../../context/AppContext";
 import {
   FaLightbulb,
@@ -16,9 +14,20 @@ const Insights = () => {
     new Date().getMonth()
   );
 
+  const [selectedYear, setSelectedYear] = useState(
+    new Date().getFullYear()
+  );
+
   const months = [
     "Jan","Feb","Mar","Apr","May","Jun",
     "Jul","Aug","Sep","Oct","Nov","Dec"
+  ];
+
+  // Get available years dynamically
+  const years = [
+    ...new Set(transactions.map((t) =>
+      new Date(t.date).getFullYear()
+    )),
   ];
 
   if (!transactions.length) {
@@ -35,12 +44,16 @@ const Insights = () => {
     );
   }
 
-  // -------- FILTERED DATA (IMPORTANT FIX) --------
-  const monthData = transactions.filter(
-    (t) => new Date(t.date).getMonth() === selectedMonth
-  );
+  const monthData = transactions.filter((t) => {
+    const date = new Date(t.date);
 
-  // -------- Monthly Income & Expense --------
+    return (
+      date.getMonth() === selectedMonth &&
+      date.getFullYear() === selectedYear
+    );
+  });
+
+  // Income / Expense
   const monthlyIncome = monthData
     .filter((t) => t.type === "income")
     .reduce((acc, t) => acc + t.amount, 0);
@@ -51,7 +64,7 @@ const Insights = () => {
 
   const net = monthlyIncome - monthlyExpense;
 
-  // -------- Highest Spending Category (FIXED: month-based) --------
+  // Highest category
   const categoryMap = {};
 
   monthData.forEach((t) => {
@@ -65,10 +78,9 @@ const Insights = () => {
     (a, b) => b[1] - a[1]
   )[0];
 
-  // -------- Monthly Comparison (Expense trend) --------
-  const now = new Date();
-  const currentMonth = now.getMonth();
-  const currentYear = now.getFullYear();
+  // Monthly comparison (current vs previous month SAME YEAR)
+  const currentMonth = selectedMonth;
+  const currentYear = selectedYear;
 
   let currentTotal = 0;
   let previousTotal = 0;
@@ -104,30 +116,51 @@ const Insights = () => {
 
   return (
     <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-      
+
       {/* Header */}
-      <div className="flex justify-between items-center mb-5">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 mb-5">
+        
         <h2 className="text-lg font-semibold flex items-center gap-2">
           <FaLightbulb className="text-yellow-500" />
           Insights
         </h2>
 
-        <select
-          value={selectedMonth}
-          onChange={(e) =>
-            setSelectedMonth(Number(e.target.value))
-          }
-          className="border rounded-lg px-3 py-1.5 text-sm focus:ring-2 focus:ring-blue-500"
-        >
-          {months.map((m, i) => (
-            <option key={i} value={i}>
-              {m}
-            </option>
-          ))}
-        </select>
+        <div className="flex gap-2">
+          
+          {/* Year */}
+          <select
+            value={selectedYear}
+            onChange={(e) =>
+              setSelectedYear(Number(e.target.value))
+            }
+            className="border rounded-lg px-3 py-1.5 text-sm"
+          >
+            {years.map((y) => (
+              <option key={y} value={y}>
+                {y}
+              </option>
+            ))}
+          </select>
+
+          {/* Month */}
+          <select
+            value={selectedMonth}
+            onChange={(e) =>
+              setSelectedMonth(Number(e.target.value))
+            }
+            className="border rounded-lg px-3 py-1.5 text-sm"
+          >
+            {months.map((m, i) => (
+              <option key={i} value={i}>
+                {m}
+              </option>
+            ))}
+          </select>
+
+        </div>
       </div>
 
-      {/* Income / Expense / Net */}
+      {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         
         <div className="p-4 rounded-xl bg-green-50">
@@ -153,7 +186,7 @@ const Insights = () => {
 
       </div>
 
-      {/* Highest Category */}
+      {/* Highest */}
       {highest && (
         <div className="mb-4 text-sm text-gray-600">
           Highest spending:
@@ -166,7 +199,7 @@ const Insights = () => {
         </div>
       )}
 
-      {/* Monthly Change Section */}
+      {/* Change */}
       <div className="flex justify-between items-center text-sm border-t pt-4">
         
         <div className="flex items-center gap-2">

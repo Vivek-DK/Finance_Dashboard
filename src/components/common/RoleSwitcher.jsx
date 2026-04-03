@@ -1,5 +1,3 @@
-// src/components/common/RoleSwitcher.jsx
-
 import { useAppContext } from "../../context/AppContext";
 import { FaUserShield, FaUser } from "react-icons/fa";
 
@@ -9,7 +7,7 @@ const RoleSwitcher = () => {
   return (
     <div className="flex items-center gap-2">
       
-      {/* Role Icon */}
+      {/* Role Icon */} 
       <div
         className={`p-2 rounded-lg ${
           role === "admin"

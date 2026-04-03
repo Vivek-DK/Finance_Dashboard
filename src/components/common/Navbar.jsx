@@ -1,5 +1,3 @@
-// src/components/common/Navbar.jsx
-
 import RoleSwitcher from "./RoleSwitcher";
 import { FaChartLine } from "react-icons/fa";
 

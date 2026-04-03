@@ -7,6 +7,7 @@ const TransactionTable = () => {
   const { filteredTransactions, role, addTransaction } = useAppContext();
   const [showForm, setShowForm] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
+  const [toast, setToast] = useState("");
 
   const [formData, setFormData] = useState({
     category: "",
@@ -29,7 +30,11 @@ const TransactionTable = () => {
 
   // CSV Export
   const handleExportCSV = () => {
-    if (sortedTransactions.length === 0) return;
+    if (!sortedTransactions.length) {
+      setToast("No data to export");
+      setTimeout(() => setToast(""), 2000);
+      return;
+    }
 
     const headers = ["Date", "Category", "Type", "Amount"];
 
@@ -51,11 +56,21 @@ const TransactionTable = () => {
     link.href = url;
     link.download = "transactions.csv";
     link.click();
+
+    setToast("CSV downloaded");
+    setTimeout(() => setToast(""), 2000);
   };
 
   return (
     <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-lg">
-      
+
+      {/* Toast */}
+      {toast && (
+        <div className="fixed top-5 right-5 bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg text-sm z-50 transition-all duration-300 opacity-100 translate-y-0">
+          {toast}
+        </div>
+      )}
+
       {/* Header */}
       <div className="flex justify-between items-center mb-5">
         <div>
@@ -68,24 +83,24 @@ const TransactionTable = () => {
         </div>
 
         <div className="flex gap-2">
-          
-          {/* CSV Export */}
+
+          {/* Export */}
           <button
             onClick={handleExportCSV}
-            className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm transition"
+            className="bg-gray-100 hover:bg-gray-200 active:scale-95 text-gray-700 px-3 py-2 rounded-lg text-sm transition-all duration-200"
           >
             Export CSV
           </button>
 
+          {/* Add */}
           {role === "admin" && (
             <button
               onClick={() => setShowForm(!showForm)}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm shadow-sm transition"
+              className="bg-blue-500 hover:bg-blue-600 active:scale-95 text-white px-4 py-2 rounded-lg text-sm shadow-sm transition-all duration-200"
             >
               + Add
             </button>
           )}
-
         </div>
       </div>
 
@@ -95,14 +110,16 @@ const TransactionTable = () => {
         setSelectedMonth={setSelectedMonth}
       />
 
-      {/* Form Animation */}
+      {/* Form */}
       <div
         className={`transition-all duration-300 overflow-hidden ${
-          showForm ? "max-h-40 opacity-100 mt-5" : "max-h-0 opacity-0"
+          showForm
+            ? "max-h-[500px] opacity-100 mt-5 translate-y-0"
+            : "max-h-0 opacity-0 -translate-y-2"
         }`}
       >
-        <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 grid grid-cols-1 md:grid-cols-5 gap-3">
-          
+        <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+
           <input
             type="text"
             placeholder="Category"
@@ -110,7 +127,7 @@ const TransactionTable = () => {
             onChange={(e) =>
               setFormData({ ...formData, category: e.target.value })
             }
-            className="border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
+            className="border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 transition"
           />
 
           <input
@@ -120,7 +137,7 @@ const TransactionTable = () => {
             onChange={(e) =>
               setFormData({ ...formData, amount: e.target.value })
             }
-            className="border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
+            className="border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 transition"
           />
 
           <select
@@ -146,6 +163,8 @@ const TransactionTable = () => {
           <button
             onClick={() => {
               if (!formData.category || !formData.amount || !formData.date) {
+                setToast("Please fill all fields");
+                setTimeout(() => setToast(""), 2000);
                 return;
               }
 
@@ -162,8 +181,11 @@ const TransactionTable = () => {
               });
 
               setShowForm(false);
+
+              setToast("Transaction added");
+              setTimeout(() => setToast(""), 2000);
             }}
-            className="bg-green-500 hover:bg-green-600 text-white rounded-lg px-3 py-2 text-sm transition"
+            className="bg-green-500 hover:bg-green-600 active:scale-95 text-white rounded-lg px-3 py-2 text-sm transition-all duration-200"
           >
             Save
           </button>
@@ -174,7 +196,7 @@ const TransactionTable = () => {
       {/* Table */}
       <div className="overflow-x-auto mt-6 rounded-xl border border-gray-100">
         <table className="w-full text-sm text-left">
-          
+
           <thead className="bg-gray-50 text-xs uppercase tracking-wide text-gray-500">
             <tr>
               <th className="py-3 px-3">Date</th>

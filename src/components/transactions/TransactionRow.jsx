@@ -1,5 +1,3 @@
-// src/components/transactions/TransactionRow.jsx
-
 import { formatCurrency, formatDate } from "../../utils/helpers";
 
 const TransactionRow = ({ transaction }) => {

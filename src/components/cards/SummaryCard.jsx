@@ -1,5 +1,3 @@
-// src/components/cards/SummaryCard.jsx
-
 import { FaWallet, FaArrowDown, FaArrowUp } from "react-icons/fa";
 
 const SummaryCard = ({ title, amount }) => {
