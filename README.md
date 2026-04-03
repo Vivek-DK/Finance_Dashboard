@@ -1,52 +1,84 @@
 # 💰 Finance Dashboard UI
 
-A clean and interactive finance dashboard built using **React**, **Tailwind CSS**, and **Chart.js**.
-This project simulates a financial tracking system where users can view transactions, analyze spending patterns, and manage data with a simple role-based interface.
+A clean, modern, and interactive finance dashboard built using **React**, **Tailwind CSS**, and **Chart.js**.
+This project simulates a financial tracking system where users can analyze transactions, monitor spending patterns, and interact with a role-based UI.
 
 ---
 
 ## 🚀 Features
 
-* 📊 Dashboard overview with:
+### 📊 Dashboard Overview
 
-  * Total Balance
-  * Income
-  * Expenses
+* Total Balance, Income, and Expenses summary cards
+* Clean and responsive layout
+* Smooth hover animations for better UX
 
-* 📈 Charts:
+---
 
-  * Line chart for balance trend
-  * Pie chart for category-wise spending
+### 📈 Data Visualization
 
-* 📋 Transactions Table:
+* Line chart for time-based balance trends
+* Pie chart for category-wise expense breakdown
 
-  * View all transactions
-  * Search by category
-  * Filter by type (income/expense)
+---
 
-* 🔐 Role-based UI:
+### 📋 Transactions Management
 
-  * Viewer → read-only access
-  * Admin → can add transactions
+* View all transactions in a structured table
+* Search by category
+* Filter by:
 
-* ➕ Add Transaction:
+  * Transaction type (income/expense)
+  * Month (dynamic filtering)
+* Sorted by latest transactions first
 
-  * Dynamic form
-  * Updates UI instantly
-  * Saves data in localStorage
+---
 
-* 💡 Insights:
+### ➕ Add Transaction (Admin Only)
 
-  * Highest spending category
-  * Basic financial observations
+* Dynamic form with smooth expand/collapse animation
+* Instant UI updates
+* Data persists using **localStorage**
 
-* 💾 Persistence:
+---
 
-  * Data stored in browser (localStorage)
+### 📤 Export Functionality
 
-* 📱 Responsive Design:
+* Export transactions as **CSV file**
+* Works with filtered data (month/type/search)
 
-  * Works across desktop, tablet, and mobile
+---
+
+### 🔐 Role-Based UI
+
+* **Viewer** → read-only access
+* **Admin** → can add transactions
+
+---
+
+### 💡 Insights & Analytics
+
+* Monthly income, expenses, and net balance
+* Highest spending category (month-based)
+* Monthly change (₹) with trend indicators (↑ ↓)
+* Percentage change (%)
+* Smart color-coded financial indicators
+
+---
+
+### 💾 Data Persistence
+
+* Data stored in browser using localStorage
+* Maintains state across page reloads
+
+---
+
+### ✨ UI/UX Enhancements
+
+* Smooth transitions and hover animations
+* Clean card-based layout
+* Modern table styling
+* Responsive design across all devices
 
 ---
 
@@ -60,11 +92,12 @@ This project simulates a financial tracking system where users can view transact
 ---
 
 ## 📂 Project Structure
+
 ```bash
 finance-dashboard/
 │
 ├── src/
-│   ├── assets/              
+│   ├── assets/
 │
 │   ├── components/
 │   │   ├── cards/
@@ -106,6 +139,7 @@ finance-dashboard/
 ├── package.json
 └── README.md
 ```
+
 ---
 
 ## ⚙️ Installation & Setup
@@ -135,39 +169,47 @@ http://localhost:5173
 
 * Switch roles using dropdown (Viewer/Admin)
 * Add new transactions (Admin only)
-* Use filters to explore data
-* View charts for insights
+* Apply filters (search, type, month)
+* Export filtered data as CSV
+* View insights and analytics
 
 ---
 
 ## 🎥 Demo Video
-📺 Google Drive Link: https://drive.google.com/file/d/1CkxXNO0LgyLf0e9fExNZ6fILOpLsfca8/view?usp=sharing
 
---- 
+📺 Google Drive Link:
+https://drive.google.com/file/d/1CkxXNO0LgyLf0e9fExNZ6fILOpLsfca8/view?usp=sharing
+
+---
 
 ## 📸 Screenshots
---- 
-## Home Page
-![image alt](https://github.com/Vivek-DK/Finance-Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/home.png)
+
+### Home Page
+
+![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/home.png)
 
 ---
 
-## Transactions
-![image alt](https://github.com/Vivek-DK/Finance-Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/transactions.png)
+### Transactions
+
+![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/transactions.png)
+
 ---
 
-## search_results_&_Insights
-![image alt](https://github.com/Vivek-DK/Finance-Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/search_results_%26_insights%20.png)
----
+### Search Results & Insights
 
+![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/search_results_%26_insights%20.png)
+
+---
 
 ## 🧠 Approach
 
-* Built using component-based architecture
-* Used Context API for global state management
-* Separated logic into utility functions for better scalability
-* Focused on clean UI and intuitive UX
-* Used mock data with localStorage for persistence
+* Component-based architecture for scalability
+* Context API for centralized state management
+* Utility functions for reusable logic
+* Focus on clean UI and intuitive UX
+* Month-based filtering for better data analysis
+* Real-time updates with persistent storage
 
 ---
 
@@ -175,24 +217,25 @@ http://localhost:5173
 
 * No backend integration required
 * Role-based behavior is simulated on frontend
-* Data is not persisted across devices
+* Data persists only in browser (localStorage)
 
 ---
 
 ## 🔮 Future Improvements
 
-* Backend integration (API)
+* Backend API integration
 * Authentication system
-* Advanced analytics
-* Export data (CSV/JSON)
-* Dark mode support
+* Advanced analytics dashboard
+* Dark mode
+* Data export (JSON format)
+* Performance optimizations
 
 ---
 
 ## 📌 Notes
 
 This project was built as part of a frontend assessment.
-The focus was on **UI design, state management, and user experience**, rather than production-level backend implementation.
+The focus was on **UI design, data handling, and user experience**, rather than backend implementation.
 
 ---
 
