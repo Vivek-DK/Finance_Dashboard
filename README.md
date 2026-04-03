@@ -178,7 +178,7 @@ http://localhost:5173
 ## 🎥 Demo Video
 
 📺 Google Drive Link:
-https://drive.google.com/file/d/1CkxXNO0LgyLf0e9fExNZ6fILOpLsfca8/view?usp=sharing
+https://drive.google.com/file/d/1gHao9DvDZAVbm6aa6ZD0t1pxEa2I9Ltk/view?usp=sharing
 
 ---
 
