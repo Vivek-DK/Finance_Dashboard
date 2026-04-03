@@ -183,23 +183,18 @@ https://drive.google.com/file/d/1CkxXNO0LgyLf0e9fExNZ6fILOpLsfca8/view?usp=shari
 ---
 
 ## 📸 Screenshots
-
-### Home Page
-
+--- 
+## Home Page
 ![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/home.png)
 
 ---
 
-### Transactions
-
+## Transactions
 ![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/transactions.png)
-
 ---
 
-### Search Results & Insights
-
+## search_results_&_Insights
 ![image alt](https://github.com/Vivek-DK/Finance_Dashboard/blob/d92d7a2c865b96f75dfbb55d38e32e510302deeb/src/assets/search_results_%26_insights%20.png)
-
 ---
 
 ## 🧠 Approach
